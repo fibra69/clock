@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Break Manager</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1976d2">
+</head>
+
+<body>
+
+<div class="container wide">
+
+<svg class="clock-logo" viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.5" fill="none" stroke="#1976d2" stroke-width="1.5"/>
+  <path d="M12 7v5l3.5 2" stroke="#1976d2" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<h1>BREAK MANAGER</h1>
+
+<h3>Select your name</h3>
+
+<input
+  type="text"
+  id="searchBox"
+  placeholder="Type your name..."
+  autocomplete="off"
+>
+
+<div id="employeeList" class="employee-grid"></div>
+
+<button class="manager" onclick="openManager()">
+Manager Login
+</button>
+
+<button
+  id="backupReminder"
+  class="backup-reminder"
+  style="display:none;"
+  onclick="openManager()"
+>
+⚠ Time to back up — tap here
+</button>
+
+</div>
+
+<script src="employees.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

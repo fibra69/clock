@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Employee Break</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1976d2">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<svg class="clock-logo" viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.5" fill="none" stroke="#1976d2" stroke-width="1.5"/>
+  <path d="M12 7v5l3.5 2" stroke="#1976d2" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<h1>BREAK MANAGER</h1>
+
+<h2 id="name"></h2>
+
+<p id="message">Ready</p>
+
+
+<button id="startBtn">
+GO BREAK
+</button>
+
+
+<button id="returnBtn" style="display:none;">
+RETURN FROM BREAK
+</button>
+
+<button id="homeBtn" onclick="goHome()">
+BACK TO HOME
+</button>
+
+
+</div>
+
+
+<script src="employee.js"></script>
+
+
+</body>
+
+</html>

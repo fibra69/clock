@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manager Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1976d2">
+</head>
+
+<body>
+
+<div class="container wide">
+
+<svg class="clock-logo" viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+  <circle cx="12" cy="12" r="10.5" fill="none" stroke="#1976d2" stroke-width="1.5"/>
+  <path d="M12 7v5l3.5 2" stroke="#1976d2" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<h1>MANAGER LOGIN</h1>
+
+<div id="loginBox">
+  <input type="password" id="pwd" placeholder="Enter password" autofocus>
+  <button onclick="checkPassword()">Login</button>
+  <p id="error" class="error-text"></p>
+  <button class="secondary" onclick="goHome()">Back to Home</button>
+</div>
+
+<div id="dashboard" style="display:none;">
+  <h3>Annual Backup</h3>
+  <p id="backupStatus" class="backup-status"></p>
+  <div class="over-limit-actions">
+    <button class="secondary" onclick="exportAllBreaksCSV()">Export Full Backup (CSV)</button>
+    <button class="secondary" onclick="markBackupDone()">Mark Backup Done</button>
+  </div>
+
+  <br>
+
+  <h3>Manage Staff</h3>
+  <div class="add-staff-row">
+    <input type="text" id="newEmployeeName" placeholder="Add employee name">
+    <button onclick="handleAddEmployee()">Add</button>
+  </div>
+  <div id="staffList" class="staff-list"></div>
+
+  <br>
+
+  <h3>Over 1-Hour Daily Limit</h3>
+  <div id="overLimitList" class="over-limit-list"></div>
+  <div class="over-limit-actions">
+    <button class="secondary" onclick="printOverLimitList()">Print List</button>
+    <button class="secondary" onclick="exportOverLimitCSV()">Export CSV</button>
+  </div>
+
+  <br>
+
+  <h3>Break Records</h3>
+  <div class="table-wrap">
+    <table id="breaksTable">
+      <thead>
+        <tr><th>Employee</th><th>Start</th><th>End</th><th>Duration</th></tr>
+      </thead>
+      <tbody id="breaksBody"></tbody>
+    </table>
+  </div>
+  <br>
+  <button class="danger" onclick="clearRecords()">Clear All Records</button>
+  <button class="secondary" onclick="goHome()">Back to Home</button>
+</div>
+
+</div>
+
+<div id="printArea" class="print-only"></div>
+
+<script src="employees.js"></script>
+<script src="manager.js"></script>
+
+</body>
+</html>
