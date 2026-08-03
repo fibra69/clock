@@ -24,7 +24,7 @@
   <path d="M12 7v5l3.5 2" stroke="#1976d2" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
-<h1>MANAGER LOGIN</h1>
+<h1>MANAGER ACCES</h1>
 
 <div id="loginBox">
   <input type="password" id="pwd" placeholder="Enter password" autofocus>
@@ -81,6 +81,12 @@
 
 <script src="employees.js"></script>
 <script src="manager.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
 
 </body>
 </html>
