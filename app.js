@@ -1,9 +1,22 @@
+// Returns a Set of employee names who currently have an open (in-progress) break.
+function getEmployeesOnBreak() {
+  const breaks = JSON.parse(localStorage.getItem("breaks")) || [];
+  const onBreak = new Set();
+  breaks.forEach(function (b) {
+    if (b.end === null) {
+      onBreak.add(b.employee);
+    }
+  });
+  return onBreak;
+}
+
 function renderEmployeeList(filterText) {
   const listEl = document.getElementById("employeeList");
   if (!listEl) return;
 
   listEl.innerHTML = "";
   const filter = (filterText || "").trim().toLowerCase();
+  const onBreak = getEmployeesOnBreak();
 
   getEmployees().filter(function (name) {
     return name.toLowerCase().includes(filter);
@@ -11,6 +24,9 @@ function renderEmployeeList(filterText) {
     const btn = document.createElement("button");
     btn.textContent = name;
     btn.className = "employee-btn";
+    if (onBreak.has(name)) {
+      btn.className += " on-break";
+    }
     btn.onclick = function () {
       openEmployee(name);
     };
@@ -64,4 +80,10 @@ document.addEventListener("DOMContentLoaded", function () {
       renderEmployeeList(searchBox.value);
     });
   }
+
+  // Keep the red "on break" highlighting current even if the tablet is
+  // just sitting on this screen while someone starts/ends a break.
+  setInterval(function () {
+    renderEmployeeList(searchBox ? searchBox.value : "");
+  }, 5000);
 });

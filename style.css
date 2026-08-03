@@ -280,6 +280,14 @@ tr.over-limit td {
     font-size: 15px;
 }
 
+.employee-btn.on-break {
+    background: #c62828;
+}
+
+.employee-btn.on-break:hover {
+    background: #8e0000;
+}
+
 input[type="password"] {
     width: 100%;
     box-sizing: border-box;
